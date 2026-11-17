@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity Output_Register is
     Port (
-        clk , reset , load    : in  std_logic;
+        clk      : in  std_logic;
         data_in  : in  std_logic_vector(7 downto 0);
         data_out : out std_logic_vector(7 downto 0)
     );
