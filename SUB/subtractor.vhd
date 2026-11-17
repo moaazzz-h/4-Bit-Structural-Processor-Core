@@ -5,7 +5,7 @@ entity subtractor is
     Port (
         A, B : in  std_logic_vector (3 downto 0);
         Diff : out std_logic_vector (3 downto 0);
-        Cout : out std_logic   -- '1' means A >= B (no borrow)
+        Cout : out std_logic   
     );
 end subtractor;
 
