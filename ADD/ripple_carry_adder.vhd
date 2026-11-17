@@ -27,4 +27,5 @@ begin
     FA1: Full_Adder port map (A => A(1), B => B(1), Cin => C(1), Sum => Sum(1), Cout => C(2));
     FA2: Full_Adder port map (A => A(2), B => B(2), Cin => C(2), Sum => Sum(2), Cout => C(3));
     FA3: Full_Adder port map (A => A(3), B => B(3), Cin => C(3), Sum => Sum(3), Cout => C(4));
+	 Cout <= C(4);
 end Structural;
