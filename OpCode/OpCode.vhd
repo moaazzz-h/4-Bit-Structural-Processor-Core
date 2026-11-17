@@ -1,0 +1,31 @@
+library Ieee;
+use Ieee.std_Logic_1164.all;
+
+package OpCode is 
+   Constant OP_ADD                       : std_logic_vector (3 downto 0) := "0000" ;
+	Constant OP_SUB                       : std_logic_vector (3 downto 0) := "0001" ;
+	Constant OP_INC_A                     : std_logic_vector (3 downto 0) := "0010" ;
+	Constant OP_DEC_A                     : std_logic_vector (3 downto 0) := "0011" ;
+	Constant OP_Circular_Shift_Right_B    : std_logic_vector (3 downto 0) := "0100" ;
+	Constant OP_Circular_Shift_Left_B     : std_logic_vector (3 downto 0) := "0101" ;
+	Constant OP_MERGING                   : std_logic_vector (3 downto 0) := "0110" ;
+	Constant OP_CLEAR                     : std_logic_vector (3 downto 0) := "0111" ;
+	Constant OP_Concatenated_Shift_Left   : std_logic_vector (3 downto 0) := "1000" ;
+
+component Full_Adder is
+    Port ( 
+            A , B , Cin : in  std_logic;
+            Sum , Cout : out std_logic
+    );
+end component;
+
+component ripple_carry_adder is
+    Port ( 
+         A , B : in std_logic_vector (3 downto 0);
+         Cin  : in std_logic;
+         Sum  : out std_logic_vector (3 downto 0);
+         Cout : out std_logic 
+    );
+end component;
+
+end package OpCode;
