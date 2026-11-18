@@ -19,6 +19,9 @@ architecture Structural of Processor_Top is
 	signal inc_result : STD_LOGIC_VECTOR(3 downto 0);
 	signal dec_result : STD_LOGIC_VECTOR(3 downto 0);
 	
+	signal sub_diff  : STD_LOGIC_VECTOR(3 downto 0);
+	signal sub_carry : STD_LOGIC;
+	
 	
 		component ripple_carry_adder is 
 		 Port (
@@ -40,6 +43,14 @@ architecture Structural of Processor_Top is
 			A : in STD_LOGIC_VECTOR(3 downto 0);
 			Result : out STD_LOGIC_VECTOR(3 downto 0)
 		 ); end component;
+		 
+		 component subtractor is
+		 Port (
+        A, B : in STD_LOGIC_VECTOR(3 downto 0);
+        Diff : out STD_LOGIC_VECTOR(3 downto 0);
+        Cout : out STD_LOGIC
+	    ); end component;
+		 
 	begin
 		
 		ADD1: ripple_carry_adder
@@ -59,4 +70,12 @@ architecture Structural of Processor_Top is
 		port map ( 
 		A => A,
 		Result => dec_result );
+		
+		SUB1: subtractor
+	   port map (
+      A => A,
+		B => B,
+		Diff => sub_diff,
+		Cout => sub_carry);
+		
 	end Structural ;
